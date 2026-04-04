@@ -93,8 +93,7 @@ namespace Restaurant.WebApi.Controllers
             await _apiContext.SaveChangesAsync();
             return Ok("Melumat silindi");
         }
-<<<<<<< HEAD
-=======
+
 
         [HttpGet("ReservationCount")]
         public async Task<IActionResult> GetCustomerCountAsync()
@@ -127,6 +126,5 @@ namespace Restaurant.WebApi.Controllers
         }
 
 
->>>>>>> 13c35dd (Bu gun Dasboard Da deyisiklikler etdim)
     }
 }
