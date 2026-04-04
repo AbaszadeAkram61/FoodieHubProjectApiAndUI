@@ -1,0 +1,45 @@
+﻿@model List<ResultServiceDtos>
+
+<section id="why-us" class="why-us section light-background">
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-box">
+                    <h3>Niyə FoodieHub?</h3>
+                    <p>
+                        FoodieHub sizə ən sevdiyiniz yeməkləri asanlıqla sifariş etməyə imkan verir. Sürətli çatdırılma, geniş restoran seçimi və sərfəli qiymətlərlə hər zaman yanınızdadır. İstədiyiniz yeməyi bir neçə kliklə qapınıza gətirin və dadın keyfini çıxarın.
+                        FoodieHub ilə vaxtınıza qənaət edin, rahatlığın və keyfiyyətin fərqini hiss edin.
+                    </p>
+                    <div class="text-center">
+                        <a href="#" class="more-btn"><span>Daha çox öyrən</span> <i class="bi bi-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div><!-- End Why Box -->
+
+            <div class="col-lg-8 d-flex align-items-stretch">
+                <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xl-4">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="@item.IconUrl"></i>
+                                <h4>@item.Title</h4>
+                                <p>@item.Description</p>
+                            </div>
+                        </div>
+                    
+                    }
+                  
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,47 @@
+﻿@model UpdateContactDtos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4> Əlaqə məlumatı yeniləmə səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="UpdateContact" method="post">
+                            <input type="hidden" asp-for="ContactId" class="form-control" />
+                            <label>Xəritə Ünvanı </label>
+                            <input type="text" asp-for="MapLocation" class="form-control" />
+                            <br />
+                            <label>Ünvan </label>
+                            <input type="text" asp-for="Address" class="form-control" />
+                            <br />
+                            <label>Telefon Nömrəsi </label>
+                            <input type="tel" asp-for="Phone" class="form-control" />
+                            <br />
+                            <label>Email</label>
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <br />
+                            <label>İş Saatları</label>
+                            <input type="text" asp-for="OpenHourse" class="form-control" />
+                            <br />
+
+                            <button class="btn btn-success"> Əlaqə Məlumatı yenilə</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>
+
+
+

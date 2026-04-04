@@ -1,0 +1,75 @@
+﻿@model List<ResultReservationDtos>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Rezervasiya bölməsi</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Müştəri Adı</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Telefon Nömrəsi</th>
+                                    <th scope="col">Rezervasiya Tarixi</th>
+                                    <th scope="col">Rezervasiya Vaxtı</th>
+                                    <th scope="col">İnsan Sayı</th>
+                                    <th scope="col">Mesaj</th>
+                                    <th scope="col">Hazırki Vəziyyət</th>
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Yenilə</th>
+                                    <th scope="col">Təsdiqlə</th>
+                                    <th scope="col">Ləğv et</th>
+                                    <th scope="col">Gözlət</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.PhoneNumber</td>
+                                        <td>@item.ReservationDate</td>
+                                        <td>@item.ReservationTime</td>
+                                        <td>@item.CountPeople</td>
+                                        <td>@item.Message</td>
+                                        <td>@item.ReservationStatus</td>
+                                        <td><a href="/Reservations/DeleteReservation/@item.ReservationId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Reservations/UpdateReservationForm/@item.ReservationId" class="btn btn-success">Yenilə</a></td>
+                                        <td><a href="/Reservations/AcceptReservationForm/@item.ReservationId" class="btn btn-info">Təsdiqlə</a></td>
+                                        <td><a href="/Reservations/CancelReservationForm/@item.ReservationId" class="btn btn-dark">Ləğv et</a></td>
+                                        <td><a href="/Reservations/WaitReservationForm/@item.ReservationId" class="btn btn-warning">Gözlət</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                          
+
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>

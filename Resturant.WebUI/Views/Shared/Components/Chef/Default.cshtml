@@ -1,0 +1,50 @@
+﻿@model List<ResultChefDto>
+<section id="chefs" class="chefs section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Şeflər</h2>
+        <p><span>Bizim</span> <span class="description-title">Peşəkar Şeflər<br></span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      
+        <div class="row gy-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member">
+                        <div class="member-img">
+                            <img src="@item.ImageUrl" class="img-fluid" alt="">
+<<<<<<< HEAD
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter-x"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+=======
+                          
+>>>>>>> 13c35dd (Bu gun Dasboard Da deyisiklikler etdim)
+                        </div>
+                        <div class="member-info">
+                            <h4>@item.Title</h4>
+                            <span>@item.NameSurname</span>
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- End Chef Team Member -->
+            }
+
+          
+
+        
+        </div>
+
+    </div>
+
+</section>

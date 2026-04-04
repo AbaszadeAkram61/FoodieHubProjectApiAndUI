@@ -1,0 +1,40 @@
+﻿@model UpdateMessageDtos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Açılan Mesaj səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="UpdateEvent" method="post">
+                            
+                            <label>Müştəri Mesajı </label>
+                            <textarea class="form-control"asp-for="MessageDetails" rows="5"></textarea>
+                            <br />
+                            <br />
+                            <br />
+
+                            <label>Sənin Mesajın </label>
+                            <textarea class="form-control" rows="5"></textarea>
+                            <br />
+                           
+
+                            <button class="btn btn-success">Gələn Mesajı Mail ilə Cavabla</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>
+

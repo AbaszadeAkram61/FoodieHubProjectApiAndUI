@@ -1,0 +1,46 @@
+﻿@model UpdateFeatureDtos
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Önə çıxarılan bölmə yeniləmə səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="UpdateFeature" method="post">
+                            <input type="hidden" asp-for="FeatureId" class="form-control" />
+                            <label>Başlıq Adı</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Alt Başlıq Adı </label>
+                            <input type="text" asp-for="SubTitle" class="form-control" />
+                            <br />
+                            <label>Açıqlama</label>
+                            <input type="text" asp-for="Description" class="form-control" />
+                            <br />
+                            <label>Video ünvanı</label>
+                            <input type="text" asp-for="VideoUrl" class="form-control" />
+                            <br />
+                            <label>Şəkil ünvanı</label>
+                            <input type="text" asp-for="ImageUrl" class="form-control" />
+<<<<<<< HEAD
+
+=======
+                            <br />
+>>>>>>> 13c35dd (Bu gun Dasboard Da deyisiklikler etdim)
+                            <button class="btn btn-success">Önə çıxarılan bölmə yenilə</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>

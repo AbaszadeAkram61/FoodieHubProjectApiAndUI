@@ -1,0 +1,38 @@
+﻿@model CreateServiceDtos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Niyə FoodieHub yaratma səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="CreateService" asp-controller="Services" method="post">
+                            <label>Başlıq Adı</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Açıqlama</label>
+                            <input type="text" asp-for="Description" class="form-control" />
+                            <br />
+                            <label>İkon  </label>
+                            <input type="text" asp-for="IconUrl" class="form-control" />
+                            <br />
+                            
+                            <button class="btn btn-primary">Yeni Sahə yarat</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>
+

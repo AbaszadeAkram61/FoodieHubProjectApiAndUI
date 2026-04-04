@@ -1,0 +1,72 @@
+﻿@model List<ResultContactDtos>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Əlaqə bölməsi</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Xəritədə yerləşmə</th>
+                                    <th scope="col">Ünvan</th>
+                                    <th scope="col">Telefon Nömrəsi</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">İş saatları</th>
+                                    
+
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Yenilə</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.MapLocation</td>
+                                        <td>@item.Address</td>
+                                        <td>@item.Phone</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.OpenHourse</td>
+                                       
+                                        <td><a href="/Contacts/DeleteContact/@item.ContactId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Contacts/UpdateContactForm/@item.ContactId" class="btn btn-success">Yenilə</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+<<<<<<< HEAD
+=======
+                            <br />
+>>>>>>> 13c35dd (Bu gun Dasboard Da deyisiklikler etdim)
+                            @if (Model.Count==0)
+                            {
+                                <a href="/Contacts/CreateContactForm" class="btn btn-info">Yeni Əlaqə Məlumatı yarat</a>
+                            }
+                           
+
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>

@@ -1,0 +1,31 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Resturant.WebUI.Models.Dto;
+using System.Threading.Tasks;
+
+namespace Resturant.WebUI.Components
+{
+    public class CategoryViewComponent:ViewComponent
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public CategoryViewComponent(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44332/api/Category");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultCategoryDtos>>(jsondata);
+                return View(values);
+            }
+
+            return View();
+        }
+    }
+}

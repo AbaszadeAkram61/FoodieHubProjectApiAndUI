@@ -1,0 +1,64 @@
+﻿@model List<ResultMessageDtos>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Gələn Mesaj bölməsi</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Müştəri Adı Soyadı</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mövzu</th>
+                                    <th scope="col">Mesaj Detalları</th>
+                                    <th scope="col">Göndərilmə Vaxtı</th>
+                                  
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Yenilə</th>
+                                    <th scope="col">Mesajı Aç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Subject</td>
+                                        <td>@item.MessageDetails</td>
+                                        <td>@item.SendDate</td>
+                                        
+                                        <td><a href="/Messages/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Messages/UpdateMessageForm/@item.MessageId" class="btn btn-success">Yenilə</a></td>
+                                        <td><a href="/Messages/IncomingMessageForm/@item.MessageId" class="btn btn-warning">Mesajı Aç</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                          
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>

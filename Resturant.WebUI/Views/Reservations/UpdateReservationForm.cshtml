@@ -1,0 +1,58 @@
+﻿@model UpdateReservationDtos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Rezervasiya yeniləmə səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="UpdateReservation" method="post">
+                            <input type="hidden" asp-for="ReservationId" class="form-control" />
+                            <label>Müştəri Adı Soyadı</label>
+                            <input type="text" asp-for="NameSurname" class="form-control" />
+                            <br />
+                            <label>Email </label>
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <br />
+                            <label>Telefon Nömrəsi </label>
+                            <input type="tel" asp-for="PhoneNumber" class="form-control" />
+                            <br />
+                            <label>Rezervasiya Tarixi</label>
+                            <input type="date" asp-for="ReservationDate" class="form-control" />
+                            <br />
+                            <label>Rezervasiya Vaxtı</label>
+                            <input type="time" asp-for="ReservationTime" class="form-control" />
+                            <br />
+
+                            <label>İnsan Sayı</label>
+                            <input type="number" asp-for="CountPeople" class="form-control" />
+                            <br />
+                            <label>Müştəri Mesajı</label>
+                            <input type="text" asp-for="Message" class="form-control" />
+                            <br />
+                            <label>Rezervasiya Vəziyyəti</label>
+                            <input type="text" asp-for="ReservationStatus" readonly class="form-control" />
+<<<<<<< HEAD
+
+=======
+                            <br />
+>>>>>>> 13c35dd (Bu gun Dasboard Da deyisiklikler etdim)
+                            <button class="btn btn-success"> Rezervasiya yenilə</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>
+

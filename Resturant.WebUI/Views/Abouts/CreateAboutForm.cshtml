@@ -1,0 +1,51 @@
+﻿@model CreateAboutDtos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Haqqımda bölmə yaratma səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="CreateAbout" method="post">
+                            <label>Başlıq Adı</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Şəkil </label>
+                            <input type="text" asp-for="ImageUrl" class="form-control" />
+                            <br />
+                            <label>Video </label>
+                            <input type="text" asp-for="VideoUrl" class="form-control" />
+                            <br />
+                            <label>Video ön şəkil</label>
+                            <input type="text" asp-for="VideoCoverImageUrl" class="form-control" />
+                            <br />
+                          
+                            <label>Açıqlama</label>
+                            <input type="text" asp-for="Description" class="form-control" />
+                            <br />
+                            <label>Sifariş nömrəsi</label>
+                            <input type="text" asp-for="ReservationNumber" class="form-control" />
+<<<<<<< HEAD
+
+=======
+                            <br />
+>>>>>>> 13c35dd (Bu gun Dasboard Da deyisiklikler etdim)
+                            <button class="btn btn-primary">Yeni Haqqımda yarat</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>
+

@@ -1,0 +1,17 @@
+﻿<section id="menu" class="menu section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Menyumuz</h2>
+        <p><span>Bizimlə yoxlayın</span> <span class="description-title">FoodieHub Menu</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        @await Component.InvokeAsync("Category")
+
+        @await Component.InvokeAsync("Product")
+
+    </div>
+
+</section>

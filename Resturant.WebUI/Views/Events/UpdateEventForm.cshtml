@@ -1,0 +1,43 @@
+﻿@model UpdateEventDtos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Tədbir yeniləmə səhifəsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="UpdateEvent" method="post">
+                            <input type="hidden" asp-for="EventId" class="form-control" />
+                            <label>Tədbir Başlıq </label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Tədbir Açıqlama</label>
+                            <input type="text" asp-for="Description" class="form-control" />
+                            <br />
+                            <label>Tədbir Şəkil </label>
+                            <input type="text" asp-for="ImageUrl" class="form-control" />
+                            <br />
+                            <label>Tədbir Qiymət </label>
+                            <input type="number" asp-for="Price" class="form-control" />
+                            <br />
+                 
+                            <button class="btn btn-success"> Tədbir yenilə</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</section>
+
+
