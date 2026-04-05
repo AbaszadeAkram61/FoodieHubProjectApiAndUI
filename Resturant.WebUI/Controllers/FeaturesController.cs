@@ -35,6 +35,20 @@ namespace Resturant.WebUI.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> CreateFeature(CreateFeatureDtos createFeatureDtos)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(createFeatureDtos);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var messagerespons = await client.PostAsync("https://localhost:44332/api/Feature", stringContent);
+            if (messagerespons.IsSuccessStatusCode)
+            {
+                return RedirectToAction("GetFeatures");
+            }
+            return RedirectToAction("CreateFeatureForm");
+        }
         [HttpGet]
         public async Task<IActionResult> DeleteFeature(int id)
         {

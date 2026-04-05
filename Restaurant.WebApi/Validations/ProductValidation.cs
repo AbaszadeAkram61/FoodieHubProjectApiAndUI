@@ -13,7 +13,7 @@ namespace Restaurant.WebApi.Validations
 
             RuleFor(x => x.ProductDescription).NotEmpty().WithMessage("Product description cannot be empty!");
             RuleFor(x => x.ProductDescription).MinimumLength(7).WithMessage("The length of the product description cannot be less than 7!");
-            RuleFor(x => x.ProductDescription).MaximumLength(100).WithMessage("The length of the product description cannot exceed 100 characters!");
+            RuleFor(x => x.ProductDescription).MaximumLength(1000).WithMessage("The length of the product description cannot exceed 1000 characters!");
 
             RuleFor(x => x.Price).NotNull().WithMessage("Price cannot be empty!");
             RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price cannot be lower than 0.!");

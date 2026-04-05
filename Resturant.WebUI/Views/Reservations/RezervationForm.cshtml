@@ -1,0 +1,57 @@
+﻿@model CreateReservationDtos
+
+<section id="book-a-table" class="book-a-table section">
+
+  
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Rezervasiya Paneli</h2>
+        <p><span>Rezervasiya edin</span> <span class="description-title">Bizimlə qalın<br></span></p>
+    </div>
+
+    <div class="container">
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="col-lg-4 reservation-img" style="background-image: url(/yummy-red-1.0.0/assets/img/FoodiehubRezervasiya.jpg);"></div>
+
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
+                <form asp-action="RezervationDo"asp-controller="Reservations" method="post" role="form" style="background:white;" class="php-email-form">
+                    <div class="row gy-4">
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" style="background:white;" asp-for="NameSurname" class="form-control" id="name" placeholder="Ad Soyad" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="email" style="background:white;" class="form-control" asp-for="Email" id="email" placeholder="Email Ünvan" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" style="background:white;" class="form-control" asp-for="PhoneNumber" id="phone" placeholder="Telefon Nömrəsi" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="date" style="background:white;" asp-for="ReservationDate" class="form-control" id="date" placeholder="Rezervasiya Tarixi" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="time" style="background:white;" class="form-control" asp-for="ReservationTime" id="time" placeholder="Rezervasiya Saatı" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="number" style="background:white;" class="form-control" asp-for="CountPeople" id="people" placeholder="İnsan sayı" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" style="background:white;" asp-for="Message" rows="5" placeholder="Messaj Yazmaq"></textarea>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Rezervasiya sorğunuz göndərildi. Sifarişinizi təsdiqləmək üçün sizə zəng edəcəyik və ya e-poçt vasitəsilə əlaqə saxlayacağıq. Təşəkkür edirik.!</div>
+                        <button type="submit">Rezervasiya et</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

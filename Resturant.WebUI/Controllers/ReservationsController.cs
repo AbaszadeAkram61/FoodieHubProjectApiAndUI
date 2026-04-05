@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Restaurant.WebApi.Dtos.Service;
 using Resturant.WebUI.Models.Dto;
 using System.Text;
 
@@ -58,6 +59,27 @@ namespace Resturant.WebUI.Controllers
             await client.PutAsync("https://localhost:44332/api/Reservation?id=" + updateReservationDtos.ReservationId, content);
             return RedirectToAction("GetReservations");
             return View();
+        }
+
+
+        public IActionResult RezervationForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RezervationDo(CreateReservationDtos createReservationDtos)
+        {
+            createReservationDtos.ReservationStatus = "Gözləmədə";
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(createReservationDtos);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var responsemessage = await client.PostAsync("https://localhost:44332/api/Reservation", content);
+            if (responsemessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("RezervationForm");
+            }
+            return RedirectToAction("RezervationForm");
         }
     }
 }

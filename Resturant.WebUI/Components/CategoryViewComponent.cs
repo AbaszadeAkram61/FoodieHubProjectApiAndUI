@@ -22,6 +22,7 @@ namespace Resturant.WebUI.Components
             {
                 var jsondata = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultCategoryDtos>>(jsondata);
+                ViewBag.Categories = values;
                 return View(values);
             }
 

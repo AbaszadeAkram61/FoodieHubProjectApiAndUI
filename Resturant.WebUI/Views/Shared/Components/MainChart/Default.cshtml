@@ -1,0 +1,107 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Simple Bar</h4>
+            </div>
+
+            <div class="card-body">
+                <div id="chart1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+       let data = {
+      totalReservation: Number(@ViewBag.totalReservation),
+      customerCount: Number(@ViewBag.customerCount),
+      pending: Number(@ViewBag.pending),
+      approved: Number(@ViewBag.approved)
+    };
+
+
+      let total =
+      data.totalReservation +
+      data.customerCount +
+      data.pending +
+      data.approved;
+
+    let chartData = [
+      Math.round((data.totalReservation / total) * 100),
+      Math.round((data.customerCount / total) * 100),
+      Math.round((data.pending / total) * 100),
+      Math.round((data.approved / total) * 100)
+    ];
+
+
+
+    var options = {
+      chart: {
+        type: 'bar',
+        height: 300,
+        toolbar: { show: false }
+      },
+
+      colors: ['#007bff'],
+
+      series: [{
+        name: "Statistika",
+        data: chartData
+      }],
+
+      plotOptions: {
+        bar: {
+          columnWidth: '40%',
+          borderRadius: 6
+        }
+      },
+
+      dataLabels: {
+        enabled: true,
+        style: {
+          colors: ['#fff'],
+          fontSize: '14px'
+        }
+      },
+
+      tooltip: {
+        enabled: false
+      },
+
+      xaxis: {
+        categories: [
+          'Toplam Rezervasiya',
+          'Müştəri sayı',
+          'Gözləmədə olan rezervasiya',
+          'Təsdiq olunmuş rezervasiya'
+        ],
+        labels: {
+          style: {
+            fontSize: '12px'
+          }
+        }
+      },
+
+      yaxis: {
+        min: 0,
+        max: 100,
+        tickAmount: 5,
+        labels: {
+          formatter: function (val) {
+            return val + "%";
+          }
+        }
+      },
+
+      grid: {
+        borderColor: '#eee'
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart1"), options);
+    chart.render();
+</script>
