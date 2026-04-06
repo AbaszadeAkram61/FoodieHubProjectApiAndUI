@@ -1,4 +1,4 @@
-﻿@model UpdateMessageDtos
+﻿@model ResultMessageDtos
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,8 +13,8 @@
                         <h4>Açılan Mesaj səhifəsi</h4>
                     </div>
                     <div class="card-body">
-                        <form asp-action="UpdateEvent" method="post">
-                            
+                        <form asp-action="SendReply" method="post">
+                            <input type="hidden" class="form-control" asp-for="Email" >
                             <label>Müştəri Mesajı </label>
                             <textarea class="form-control"asp-for="MessageDetails" rows="5"></textarea>
                             <br />
@@ -22,7 +22,7 @@
                             <br />
 
                             <label>Sənin Mesajın </label>
-                            <textarea class="form-control" rows="5"></textarea>
+                            <textarea class="form-control" name="ReplyMessage" rows="5"></textarea>
                             <br />
                            
 

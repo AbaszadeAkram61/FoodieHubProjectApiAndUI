@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Restaurant.WebApi.Dtos;
 using Restaurant.WebApi.Dtos.MessageDto;
 using Restaurant.WebApi.Models.Context;
 using Restaurant.WebApi.Models.Entities;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace Restaurant.WebApi.Controllers
@@ -97,6 +100,28 @@ namespace Restaurant.WebApi.Controllers
         {
             var messages = await _apiContext.Messages.Where(x => x.IsRead == false).ToListAsync();
             return Ok(messages);
+        }
+
+
+
+        [HttpPost("SendReply")]
+        public async Task<IActionResult> SendReply(UpdateMessageGmail model)
+        {
+            var mail = new MailMessage();
+            mail.To.Add(model.Email);
+            mail.Subject = "Cavab mesajı";
+            mail.Body = model.ReplyMessage;
+            mail.From = new MailAddress("abaszadeakram61@gmail.com");
+
+            var smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("abaszadeakram61@gmail.com", "vpms yxmv idrd xdgy");
+
+            await smtp.SendMailAsync(mail);
+
+            return Ok();
         }
     }
 }

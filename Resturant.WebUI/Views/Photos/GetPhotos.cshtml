@@ -9,43 +9,55 @@
 <section class="section">
     <div class="section-body">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
+                    <div class="card-header">
+                        <h4>Galareya bölməsi</h4>
+
+                    </div>
                     <div class="card-body">
-                        <div class="bootstrap snippet">
-                            <section id="portfolio" class="gray-bg padding-top-bottom">
-                                <!--==== Portfolio Filters ====-->
-                                
-                                <!-- ======= Portfolio items ===-->
-                                <div class="projects-container scrollimation in">
-                                    <div class="row">
-                                        @foreach (var item in Model)
-                                        {
-                                            <article class="col-md-4 col-sm-6 portfolio-item web-design apps psd">
-                                                <div class="portfolio-thumb in">
-                                                    <a href="#" class="main-link">
-                                                        <img class="img-responsive img-center" src="@item.PhotoUrl" alt="">
-                                                        <span class="project-title">@item.Title</span>
-                                                        <span class="overlay-mask"></span>
-                                                    </a>
-                                                    <a class="enlarge cboxElement" href="#" title="@item.Title">
-                                                        <i class="fa fa-expand fa-fw"></i>
-                                                    </a>
-                                                    <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
-                                                </div>
-                                            </article>
-                                        }
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Başlıq Adı</th>
+                                    <th scope="col">Şəkil</th>
+                                    
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Yenilə</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.Title</td>
+                                        <td>@item.PhotoUrl</td>
                                        
-                                       
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+
+                                        <td><a href="/Photos/DeletePhoto/@item.PhotoId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Photos/UpdatePhotoForm/@item.PhotoId" class="btn btn-success">Yenilə</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                            <br />
+
+                            <a href="/Photos/CreatePhotoForm" class="btn btn-info">Yeni Şəkil yarat</a>
+
+
+                        </table>
                     </div>
                 </div>
+
+
             </div>
+
         </div>
-    </div>
+
 </section>
 
 

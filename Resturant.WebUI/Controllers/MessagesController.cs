@@ -69,7 +69,7 @@ namespace Resturant.WebUI.Controllers
             if (responsemessage.IsSuccessStatusCode)
             {
                 var json = await responsemessage.Content.ReadAsStringAsync();
-                var value = JsonConvert.DeserializeObject<UpdateMessageDtos>(json);
+                var value = JsonConvert.DeserializeObject<ResultMessageDtos>(json);
                 return View(value);
             }
             return View();
@@ -90,9 +90,23 @@ namespace Resturant.WebUI.Controllers
             var responsemessage = await client.PostAsync("https://localhost:44332/api/Message/", content);
             if (responsemessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetMessages");
+                return Content("OK");
             }
-            return RedirectToAction("SendMessagesForm");
+            return Content("Error");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> SendReply(MessageResponseMailDtos model)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var json = JsonConvert.SerializeObject(model);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            await client.PostAsync("https://localhost:44332/api/Message/SendReply", content);
+
+            return RedirectToAction("GetMessages");
         }
     }
 }

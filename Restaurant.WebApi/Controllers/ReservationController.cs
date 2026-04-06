@@ -126,5 +126,33 @@ namespace Restaurant.WebApi.Controllers
         }
 
 
+        [HttpGet("Cancel")]
+        public async Task<IActionResult> CancelReservation(int id)
+        {
+           var reservation=await _apiContext.Reservations.FirstOrDefaultAsync(x => x.ReservationId == id);
+            reservation.ReservationStatus = "Ləğv edildi";
+            await _apiContext.SaveChangesAsync();
+            return Ok(reservation);
+        }
+
+        [HttpGet("Wait")]
+        public async Task<IActionResult> WaitReservation(int id)
+        {
+            var reservation = await _apiContext.Reservations.FirstOrDefaultAsync(x => x.ReservationId == id);
+            reservation.ReservationStatus = "Gözləmədə";
+            await _apiContext.SaveChangesAsync();
+            return Ok(reservation);
+        }
+
+        [HttpGet("Accept")]
+        public async Task<IActionResult> AcceptReservation(int id)
+        {
+            var reservation = await _apiContext.Reservations.FirstOrDefaultAsync(x => x.ReservationId == id);
+            reservation.ReservationStatus = "Təsdiqləndi";
+            await _apiContext.SaveChangesAsync();
+            return Ok(reservation);
+        }
+
+
     }
 }

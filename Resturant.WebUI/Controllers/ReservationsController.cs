@@ -2,7 +2,9 @@
 using Newtonsoft.Json;
 using Restaurant.WebApi.Dtos.Service;
 using Resturant.WebUI.Models.Dto;
+using System;
 using System.Text;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Resturant.WebUI.Controllers
 {
@@ -47,6 +49,7 @@ namespace Resturant.WebUI.Controllers
                 var value = JsonConvert.DeserializeObject<UpdateReservationDtos>(json);
                 return View(value);
             }
+         
             return View();
         }
 
@@ -61,11 +64,11 @@ namespace Resturant.WebUI.Controllers
             return View();
         }
 
-
-        public IActionResult RezervationForm()
+        public IActionResult ReservationFormPartial()
         {
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> RezervationDo(CreateReservationDtos createReservationDtos)
@@ -77,9 +80,30 @@ namespace Resturant.WebUI.Controllers
             var responsemessage = await client.PostAsync("https://localhost:44332/api/Reservation", content);
             if (responsemessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("RezervationForm");
+                return Content("OK"); 
             }
-            return RedirectToAction("RezervationForm");
+            return Content("Error");
+        }
+
+        public async Task<IActionResult> AcceptReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            await client.GetAsync($"https://localhost:44332/api/Reservation/Accept?id=" +id);
+            return RedirectToAction("GetReservations");
+        }
+
+        public async Task<IActionResult> CancelReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            await client.GetAsync($"https://localhost:44332/api/Reservation/Cancel?id=" +id);
+            return RedirectToAction("GetReservations");
+        }
+
+        public async Task<IActionResult> WaitReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            await client.GetAsync($"https://localhost:44332/api/Reservation/Wait?id=" +id);
+            return RedirectToAction("GetReservations");
         }
     }
 }
